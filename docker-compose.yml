@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    image: trivia-game-frontend
+    build: .
+    networks:
+      - frontend
+    ports:
+      - "3000:3000"
+
+  web-cli:
+    image: trivia-game-frontend
+    networks:
+      - frontend
+    command: sh
+
+networks:
+  frontend:
+    driver: bridge
